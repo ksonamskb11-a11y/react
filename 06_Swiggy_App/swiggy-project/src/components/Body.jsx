@@ -2,45 +2,22 @@ import RestroCard from "./RestroCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useRestroData from "../hooks/useRestroData";
+
 
 const Body = () => {
-    const [data, setData] = useState([]);
-    const [filtered, setFiltered] = useState([]);
-    const [search, setSearch] = useState("");
-    const [sort, setSort] = useState([]);
-
-    // console.log(data);
-    
 
     let time = 25;
-    const handleRating = () => {
-        const sorted = [...finalData].sort(
-            (a, b) => b.finalData[0].info.avgRating - a.finalData[0].info.avgRating
-        );
-        setSort(sorted);
-    };
 
-    useEffect(() => {
-        fetchData()
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const data = await fetch("http://localhost:3000/data");
-            const json = await data.json();
-            const finalData = json.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-            // console.log(finalData);
-            setData(finalData);
-            setFiltered(finalData);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
+    const {data, filtered, search} = useRestroData();
+   
     if (data.length === 0) {
         return (
             <Shimmer />
         )
+    }
+    const getCost = (str) => {
+        return(str.replace(/\D/g, ""));
     }
 
     return (
