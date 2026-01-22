@@ -1,23 +1,22 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 
 const useRestroData = () => {
-     const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [search, setSearch] = useState("");
-    const [sort, setSort] = useState([]);
+    // const [sort, setSort] = useState([]);
 
     // console.log(data);
     
-    const handleRating = () => {
-        const sorted = [...data].sort(
-            (a, b) => b.finalData[0].info.avgRating - a.finalData[0].info.avgRating
-        );
-        setSort(sorted);
-    };
+    // const handleRating = () => {
+    //     const sorted = [...data].sort(
+    //         (a, b) => b.finalData[0].info.avgRating - a.finalData[0].info.avgRating
+    //     );
+    //     setSort(sorted);
+    // };
 
     useEffect(() => {
-        fetchData()
+        fetchData();
     }, []);
 
     const fetchData = async () => {
@@ -33,7 +32,7 @@ const useRestroData = () => {
         }
     }
 
-  return {data, filtered, search};
+  return {data, filtered, search, setFiltered, setSearch};
 }
 
 export default useRestroData;

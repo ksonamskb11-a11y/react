@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useUserStatus from "../hooks/useUserStatus";
 
 const Header = () => {
+
+    const onlineStatus = useUserStatus();
 
     return (
         <div className="flex  *:hover:bg-zinc-500 fixed z-1 w-full">
@@ -21,6 +24,13 @@ const Header = () => {
                             About
                         </Link>
                     </li>
+
+                    <li className="hover:text-cyan-200 cursor-pointer font-bold ">
+                        {
+                            onlineStatus===true ? "Online🟢" : "Offline🔴"
+                        }
+                    </li>
+
                     <li className="hover:text-cyan-200 cursor-pointer font-bold">
                         <Link to={"/feedback"}>
                             FeedBack

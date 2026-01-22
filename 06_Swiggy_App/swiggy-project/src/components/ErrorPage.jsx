@@ -1,5 +1,5 @@
-import React from "react";import { useNavigate, useRouteError } from "react-router-dom";
-;
+import React from "react";
+import { useNavigate, useRouteError } from "react-router-dom";
 
 const  ErrorPage = () => {
     const error = useRouteError();
@@ -7,21 +7,21 @@ const  ErrorPage = () => {
     console.log(error);
     
     return(
-        <div>
+        <div className="bg-gray-400 text-center text-4xl font-bold h-screen pt-50 ">
             This is an Error Page!!!!!!
 
-            <h2>
+            <h2 className="m-4">
                 {
                     error.data
                 }
             </h2>
             <h3>
-                status: {error.status}
+                Status: {error.status}
             </h3>
 
             <button 
             onClick={()=> navigate("/")}
-            className="bg-gray-600 text-white m-1 rounded-md p-3">
+            className="bg-gray-600 text-white m-5 rounded-4xl p-5">
                 Back to Home Page
             </button>
         </div>

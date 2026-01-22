@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IMAGE_URL } from '../helper/constants';
 import useRestroDataById from '../hooks/useRestroDataById';

@@ -20,4 +20,24 @@ const RestroCard = ({data})=> {
          </div>
     )
  }
+
+export const cardWithLabel = (RestroCard) => {
+
+   return(props)=>{
+         const {isOpen} = props.data;
+         // console.log(isOpen);
+
+         return(
+            <>
+            <label className="absolute text-white font-bold text-2xl p-3 m-13.5 rounded-2xl bg-amber-500">
+               {
+                  isOpen ? "Open" : "Closed"
+               }
+            </label>
+            <RestroCard {...props}/>
+            </>
+         )     
+   }
+}
+
 export default RestroCard;
