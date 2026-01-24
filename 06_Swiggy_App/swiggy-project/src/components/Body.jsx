@@ -12,7 +12,7 @@ const Body = () => {
 
     let time = 25;
 
-    const { data, filtered, search, sort, setSort, setFiltered, setSearch, setData } = useRestroData();
+    const { data, filtered, search, setFiltered, setSearch } = useRestroData();
 
     if (data.length === 0) {
         return (

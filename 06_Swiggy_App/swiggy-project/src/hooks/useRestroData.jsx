@@ -4,15 +4,14 @@ const useRestroData = () => {
     const [data, setData] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [search, setSearch] = useState("");
-    const [sort, setSort] = useState([]);
 
     // console.log(data);
     
     // const handleRating = () => {
     //     const sorted = [...data].sort(
-    //         (a, b) => b.finalData[0].info.avgRating - a.finalData[0].info.avgRating
+    //         (a, b) => b.info.avgRating - a.info.avgRating
     //     );
-    //     setSort(sorted);
+    //     setFiltered(sorted);
     // };
 
     useEffect(() => {
@@ -32,7 +31,7 @@ const useRestroData = () => {
         }
     }
 
-  return {data, filtered, search,sort, setSort, setFiltered, setSearch, setData};
+  return {data, filtered, search, setFiltered, setSearch};
 }
 
 export default useRestroData;
