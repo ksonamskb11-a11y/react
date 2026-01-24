@@ -4,7 +4,7 @@ const useRestroData = () => {
     const [data, setData] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [search, setSearch] = useState("");
-    // const [sort, setSort] = useState([]);
+    const [sort, setSort] = useState([]);
 
     // console.log(data);
     
@@ -32,7 +32,7 @@ const useRestroData = () => {
         }
     }
 
-  return {data, filtered, search, setFiltered, setSearch};
+  return {data, filtered, search,sort, setSort, setFiltered, setSearch, setData};
 }
 
 export default useRestroData;

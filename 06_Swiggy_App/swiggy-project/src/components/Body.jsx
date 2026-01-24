@@ -12,20 +12,20 @@ const Body = () => {
 
     let time = 25;
 
-    const {data, filtered, search, setFiltered, setSearch} = useRestroData();
-   
+    const { data, filtered, search, sort, setSort, setFiltered, setSearch, setData } = useRestroData();
+
     if (data.length === 0) {
         return (
             <Shimmer />
         )
     }
 
-    if(!onlineStatus){
-        return(<h1 className=" pt-60 text-center font-bold">You are Offline!!!!! <br/> Please connect your Internet!!!!!!!</h1>);
+    if (!onlineStatus) {
+        return (<h1 className=" pt-60 text-center text-4xl font-bold">You are Offline!!!!! <br /> Please connect your Internet!!!!!!!</h1>);
     }
 
-    const getCost = (str) => {
-        return(str.replace(/\D/g, ""));
+    const getCost = (string) => {
+        return(Number(string.replace(/\D/g, "")));
     }
 
     return (
@@ -57,12 +57,17 @@ const Body = () => {
                     className="bg-gray-600 text-white m-1 rounded-md p-3 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer">
                     Fastest Delivery
                 </button>
-                <button className="bg-gray-600 text-white m-1 rounded-md p-3 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer">
-
-                    High to Low
+                <button className="bg-gray-600 text-white m-1 rounded-md p-3 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer"
+                   onClick={()=> { const sorted = [...data].sort((a, b) =>  getCost(b.info.costForTwo) - getCost(a.info.costForTwo));
+                    setFiltered(sorted);
+                   }}>
+                    Price: High to Low
                 </button>
-                <button className="bg-gray-600 text-white m-1 rounded-md p-3 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer">
-                    Low to High
+                <button className="bg-gray-600 text-white m-1 rounded-md p-3 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer"
+                    onClick={()=> { const sorted = [...data].sort((a, b) =>  getCost(a.info.costForTwo) - getCost(b.info.costForTwo));
+                    setFiltered(sorted);
+                   }}>
+                    Price: Low to High
                 </button>
             </div>
 
@@ -70,12 +75,12 @@ const Body = () => {
             <div className="flex flex-wrap justify-center bg-gray-800">
                 {
                     // filtered.map((res) => <Link to={`restro/menu/${res.info.id}`} key={res.info.id}> <RestroCard data={res.info} /></Link>)
-                    filtered.map((res) => 
-                    <Link to={`restro/menu/${res.info.id}`} key={res.info.id}> 
-                        {
-                            res.info.isOpen ? <RestroCardWithLabel data={res.info}/> : <RestroCard data={res.info}/>
-                        }
-                    </Link>)
+                    filtered.map((res) =>
+                        <Link to={`restro/menu/${res.info.id}`} key={res.info.id}>
+                            {
+                                res.info.isOpen ? <RestroCardWithLabel data={res.info} /> : <RestroCard data={res.info} />
+                            }
+                        </Link>)
                 }
             </div>
         </div>
