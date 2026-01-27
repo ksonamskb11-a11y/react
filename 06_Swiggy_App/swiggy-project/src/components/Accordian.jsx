@@ -10,7 +10,7 @@ const Accordian = ({ categoryName, items }) => {
     return (
         <div className=' pb-4'>
             <div key={categoryName} className='pl-8 pr-8 '>
-                <div className=' p-2 flex justify-between ' onClick={() => setMenuOpen(!menuOpen)}>
+                <div className=' p-2 flex justify-between items-center ' onClick={() => setMenuOpen(!menuOpen)}>
                 <h2 className='text-2xl font-bold m-2 '>
                     {categoryName}
                     <span> ({items.length}) </span>

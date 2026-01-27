@@ -1,11 +1,18 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import useUserStatus from "../hooks/useUserStatus";
 import { Logo } from "../helper/constants";
+import userContext from "../context/userContext";
 
 const Header = () => {
 
     const onlineStatus = useUserStatus();
+
+    // const data = useContext(userContext);
+    // console.log(data, data.isLoggedIn, data.username);
+
+    const {isLoggedIn,username} = useContext(userContext);      
+    
 
     return (
         <div className="fixed z-50 w-full bg-black text-white font-bold flex items-center">
@@ -31,12 +38,12 @@ const Header = () => {
                         FeedBack
                     </Link>
                 </li>
-                <li>
+                <li className="bg-red-300 text-gray-800 rounded-4xl">
                     <Link >
-                        Sign-In
+                        {isLoggedIn ? username : "Please log-in"}
                     </Link>
                 </li>
-                <li className="  ">
+                <li>
                     <Link to={"/cart"}>
                         Cart<i className="fa-solid fa-cart-shopping ml-1"></i>
                     </Link>

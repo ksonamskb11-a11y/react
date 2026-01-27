@@ -33,6 +33,7 @@ const ResMenu = () => {
                 {
                     Object.entries(menu).map(([categoryName, items]) => (
                         <Accordian
+                            key={categoryName}
                             categoryName={categoryName}
                             items={items}
                         />

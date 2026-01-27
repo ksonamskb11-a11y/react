@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react';
+import userContext from '../context/userContext';
 
 const AccordianBody = ({ items }) => {
+    const {isLoggedIn,username} = useContext(userContext);
     return (
         <div>
             <div className=' rounded-l m-7 '>
@@ -19,6 +21,10 @@ const AccordianBody = ({ items }) => {
                                     <span className='bg-gray-300 border-0 rounded-2xl pl-4 pr-2 p-2'>
                                         {i.isVeg ? "Veg 🟢" : "Non-veg 🔴"}
                                     </span>
+                                    {/* this span is only to check- Is "userContext" hook is working or not on very Page? */}
+                                    {/* <span className='bg-gray-300 border-0 rounded-2xl p-2 ml-4'>
+                                        {isLoggedIn ? username : "P Log-In"}
+                                    </span> */}
                                 </div>
                             </div>
                             <div>
