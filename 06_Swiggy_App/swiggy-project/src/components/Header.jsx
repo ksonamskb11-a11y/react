@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import useUserStatus from "../hooks/useUserStatus";
-import { Logo } from "../helper/constants";
+// import { Logo } from "../helper/constants";
 import userContext from "../context/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -13,12 +14,17 @@ const Header = () => {
 
     const {isLoggedIn,username} = useContext(userContext);      
     
-
+    const cartItems = useSelector((state)=> state.cart.items)
+    console.log(cartItems);
+    
     return (
         <div className="fixed z-50 w-full bg-black text-white font-bold flex items-center">
             {/* Logo */}
             <div className="p-4 flex ">
-                <img src={Logo} alt="logo" className="h-7 mr-2" />
+                {/* if you saved image in public folder, than u can use path as below simply */}
+                <img src="/image/ODF.png" alt="logo" className="h-7 mr-2" />
+                {/* or we can use 'Logo' instead path, with import {Logo} */}
+                {/* <img src={ Logo } alt="logo" className="h-7 mr-2" /> */}
                 Swiggy
             </div>
             {/* Nav */}
@@ -38,14 +44,14 @@ const Header = () => {
                         FeedBack
                     </Link>
                 </li>
-                <li className="bg-red-300 text-gray-800 rounded-4xl">
+                <li className="bg-red-300 text-gray-800 rounded-full">
                     <Link >
                         {isLoggedIn ? username : "Please log-in"}
                     </Link>
                 </li>
                 <li>
                     <Link to={"/cart"}>
-                        Cart<i className="fa-solid fa-cart-shopping ml-1"></i>
+                        Cart({cartItems.length})<i className="fa-solid fa-cart-shopping ml-1"></i>
                     </Link>
                 </li>
             </ul>

@@ -1,7 +1,10 @@
 import React,{useContext} from 'react';
 import userContext from '../context/userContext';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/slices/cartSlice';
 
 const AccordianBody = ({ items }) => {
+    const dispatch = useDispatch();
     const {isLoggedIn,username} = useContext(userContext);
     return (
         <div>
@@ -28,7 +31,8 @@ const AccordianBody = ({ items }) => {
                                 </div>
                             </div>
                             <div>
-                                <button className="bg-orange-600 text-white m-1 rounded-md p-2 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer">
+                                <button className="bg-orange-600 text-white m-1 rounded-md p-2 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer"
+                                        onClick={()=>{dispatch(addToCart(i, i.id))}}>
                                     Add To Cart
                                 </button>
                             </div>
