@@ -10,7 +10,7 @@ const Cart = () => {
     <div className="p-20 bg-gray-400 font-bold min-h-screen">
       <div className=" flex justify-between items-center pl-4 pr-4">
         <h1 className="text-2xl"> Your Cart </h1>
-        <button onClick={dispatch(clearCart())}
+        <button onClick={()=> dispatch(clearCart())}
                 className="bg-orange-600 p-2 rounded-2xl cursor-pointer text-white"
         >Clear Cart</button>
       </div>
@@ -22,13 +22,13 @@ const Cart = () => {
               <p className="text-gray-700">Price: Rs <span>{i.price}</span></p>
             </div>
             <div className="">
-              <span onClick={dispatch(increaseQty())}
+              <span onClick={()=> dispatch(increaseQty(i))}
                     className="cursor-pointer bg-green-400 text-green-800 px-3 py-1 rounded"
               >+</span>
 
               <span className="text-gray-600 p-2">{i.qty || 1}</span>
 
-              <span onClick={dispatch(decreaseQty())}
+              <span onClick={()=> dispatch(decreaseQty(i))}
                     className="cursor-pointer bg-red-400 text-red-800 px-3 py-1 rounded"
               >-</span>
             </div>

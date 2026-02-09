@@ -32,7 +32,7 @@ const AccordianBody = ({ items }) => {
                             </div>
                             <div>
                                 <button className="bg-orange-600 text-white m-1 rounded-md p-2 hover:bg-orange-600 focus:bg-yellow-600 active:bg-green-800 cursor-pointer"
-                                        onClick={()=>{dispatch(addToCart(i, i.id))}}>
+                                        onClick={()=>{dispatch(addToCart(i))}}>
                                     Add To Cart
                                 </button>
                             </div>

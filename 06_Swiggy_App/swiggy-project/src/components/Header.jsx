@@ -15,7 +15,7 @@ const Header = () => {
     const {isLoggedIn,username} = useContext(userContext);      
     
     const cartItems = useSelector((state)=> state.cart.items)
-    console.log(cartItems);
+    // console.log(cartItems);
     
     return (
         <div className="fixed z-50 w-full bg-black text-white font-bold flex items-center">
