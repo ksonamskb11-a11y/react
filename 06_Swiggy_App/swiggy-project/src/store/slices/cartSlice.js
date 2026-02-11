@@ -19,10 +19,9 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart:(state,action)=>{
-            // const item = action.payload;
-            // const id = item.id;
-            // if(!item) return
-            // state.items = state.items.filter((i) => i.id !== id);
+            const item = action.payload;
+            const id = item.id;
+            state.items = state.items.filter((i) => i.id !== id);
         },
         clearCart:(state)=>{
             state.items = []

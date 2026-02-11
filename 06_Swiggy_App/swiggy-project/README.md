@@ -28,4 +28,21 @@
 const [listOfRestro] = useState([])
 const [listOfRestro,setlistOfRestro] = useState([])
 
-     
+
+**Cmds to Run a react/frontend project  **    
+- To run swiggy-project on browser (have to run these cmds in different Terminals )
+1. Terminal cmd: - Path for data:
+  PS C:\Users\Ksona\OneDrive\Desktop\react\06_Swiggy_App\swiggy-project\src\data>  npx json-server data.json --port 3000  
+
+ - JSON Server started on PORT :3000
+    Press CTRL-C to stop  (in terminal)
+    Watching data.json...
+
+2. Terminal cmd: - Path for Menu-data:
+  PS C:\Users\Ksona\OneDrive\Desktop\react\06_Swiggy_App\swiggy-project\src\data>  npx json-server menu.json --port 3500  
+
+3. Terminal cmd: - Path to run swiggy-project
+   PS C:\Users\Ksona\OneDrive\Desktop\react\06_Swiggy_App\swiggy-project> npm run dev
+
+and if you need to run more cmd you have to open a new terminal and write cmd there
+

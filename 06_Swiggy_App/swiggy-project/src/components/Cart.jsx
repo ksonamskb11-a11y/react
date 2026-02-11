@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, decreaseQty, increaseQty } from "../store/slices/cartSlice";
+import { clearCart, decreaseQty, increaseQty, removeFromCart } from "../store/slices/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -31,6 +31,10 @@ const Cart = () => {
               <span onClick={()=> dispatch(decreaseQty(i))}
                     className="cursor-pointer bg-red-400 text-red-800 px-3 py-1 rounded"
               >-</span>
+
+              <button onClick={()=> dispatch(removeFromCart(i))}
+                className="bg-orange-700 p-2 rounded-2xl cursor-pointer text-white ml-10"
+                >Remove from Cart</button>
             </div>
           </div>  
         ))}
